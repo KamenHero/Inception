@@ -9,11 +9,10 @@ services:
       - .env
     volumes:
       - mariadb:/var/lib/mysql/
-    ports:
-      - 0.0.0.0:3306:3306
     networks:
       - inception
     image: mariadb
+
   wordpress:
     container_name: wordpress
     build: /home/oryadi/inception/srcs/requirements/wordpress/.
@@ -21,11 +20,9 @@ services:
     env_file:
       - .env
     volumes:
-      - wordpress:/var/www/html/wordpress
+      - wordpress:/var/www/html/
     depends_on:
       - mariadb
-    ports:
-      - 0.0.0.0:9000:9000
     networks:
       - inception
     image: wordpress
@@ -36,9 +33,9 @@ services:
     env_file:
       - .env
     volumes:
-      - wordpress:/var/www/html/wordpress
+      - wordpress:/var/www/html/
     ports:
-      - 0.0.0.0:443:443
+      - 443:443
     depends_on:
       - wordpress
     networks:
@@ -47,7 +44,7 @@ services:
   
 networks:
   inception:
-    driver: bridge
+    # driver: bridge
 
 volumes:
   wordpress:
@@ -56,6 +53,7 @@ volumes:
       o : bind
       device : /home/oryadi/data/wordpress/
       type: none
+
   mariadb:
     driver : local
     driver_opts :

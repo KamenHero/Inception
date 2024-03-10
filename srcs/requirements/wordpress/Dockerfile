@@ -18,4 +18,4 @@ RUN chmod +x o.sh
 
 EXPOSE 9000
 
-CMD ["./script.sh"]
+ENTRYPOINT ["./script.sh"]

@@ -1,6 +1,7 @@
 #! bin/bash
 # sleep infinity
 sleep 10
+mkdir /var/www/html/wordpress
 cd /var/www/html/wordpress
 wp core download --allow-root
 # mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php

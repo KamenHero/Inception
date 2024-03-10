@@ -14,4 +14,4 @@ service mariadb stop
 # mariadb -u root -e "FLUSH PRIVILEGES;"
 # echo "im here 2"
 # exec mysqld_safe
-mariadbd 
+mariadbd
