@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update
 
 RUN apt-get install nginx -y
 
@@ -12,8 +12,6 @@ RUN  openssl req -x509 -nodes -out /etc/nginx/ssl/inception.crt -keyout /etc/ngi
 
 COPY  ./conf /etc/nginx/sites-enabled
 
-
-EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"] 
 # CMD ["bash"]

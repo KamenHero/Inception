@@ -9,13 +9,9 @@ RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
 COPY ./tools/script.sh /
-COPY ./tools/o.sh /
 
 RUN mkdir -p /run/php
 RUN mkdir -p /var/www/html/wordpress
 RUN chmod +x script.sh
-RUN chmod +x o.sh
-
-EXPOSE 9000
 
 ENTRYPOINT ["./script.sh"]

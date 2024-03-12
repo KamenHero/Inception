@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update
 
 RUN apt-get install -y mariadb-server
 
@@ -14,7 +14,6 @@ COPY ./tools/script.sh .
 # ENV MYSQL_ROOTPW=root123 
 RUN chmod +x script.sh
 
-EXPOSE 3306
 # RUN ./script.sh
 
 CMD ["./script.sh"]
