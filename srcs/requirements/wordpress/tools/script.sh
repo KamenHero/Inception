@@ -13,6 +13,18 @@ wp core install --allow-root --url=${DOMAIN_NAME} --title=Inception --admin_user
 
 wp user create --allow-root $WP_USER_NAME $WP_USER_EMAIL --user_pass="$WP_USER_PASSWORD"
 
+wp plugin install redis-cache --activate --allow-root
+
+wp config set FS_METHOD direct --type=constant --allow-root
+
+wp config set WP_REDIS_HOST redis-cache --type=constant --allow-root
+
+wp config set WP_REDIS_PORT 6379 --type=constant --allow-root
+
+wp config set WP_CACHE true --type=constant --allow-root
+
+wp redis enable --allow-root
+
 chown -R www-data:www-data /var/www/html/wordpress
 
 sed -i 's#listen = /run/php/php7.4-fpm.sock#listen = 0.0.0.0:9000#g' /etc/php/7.4/fpm/pool.d/www.conf

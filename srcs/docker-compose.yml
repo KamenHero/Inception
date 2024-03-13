@@ -26,6 +26,7 @@ services:
     networks:
       - inception_net
     image: wordpress
+
   nginx:
     container_name: nginx
     build: /home/oryadi/inception/srcs/requirements/nginx/.
@@ -41,7 +42,21 @@ services:
     networks:
       - inception_net
     image: nginx
+
+  static_website:
+    container_name: static_website
+    build: /home/oryadi/inception/srcs/requirements/bonus/static/.
+    restart: always
+    ports:
+      - 3000:3000
   
+  redis-cache:
+    container_name: redis-cache
+    build: /home/oryadi/inception/srcs/requirements/bonus/redis-cache/.
+    restart: always
+    networks:
+      - inception_net
+
 networks:
   inception_net:
     name: inception_net
