@@ -50,6 +50,15 @@ services:
     ports:
       - 3000:3000
   
+  adminer:
+    container_name: adminer
+    build: /home/oryadi/inception/srcs/requirements/bonus/adminer/.
+    restart: always
+    networks:
+      - inception_net
+    ports:
+      - 8080:8080
+
   redis-cache:
     container_name: redis-cache
     build: /home/oryadi/inception/srcs/requirements/bonus/redis-cache/.

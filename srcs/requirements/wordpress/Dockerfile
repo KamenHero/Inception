@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y curl php php-fpm php-mysql  less
+RUN apt-get update && apt-get install curl php php-fpm php-mysql -y
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
