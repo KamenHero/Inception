@@ -11,5 +11,3 @@ RUN chown www-data:www-data adminer.php
 RUN chmod +x adminer.php
 
 CMD [ "php", "-S", "0.0.0.0:8080" ]
-
-

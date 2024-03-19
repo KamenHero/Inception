@@ -49,6 +49,19 @@ services:
     restart: always
     ports:
       - 3000:3000
+
+  ftp_server:
+    container_name: ftp_server
+    image: ftp_server
+    build: /home/oryadi/inception/srcs/requirements/bonus/ftp-server/.
+    volumes:
+      - wordpress:/wordpress
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - 21:21
+      - 40000-40010:40000-40010
   
   adminer:
     container_name: adminer
