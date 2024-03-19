@@ -14,6 +14,4 @@ COPY ./tools/script.sh .
 # ENV MYSQL_ROOTPW=root123 
 RUN chmod +x script.sh
 
-# RUN ./script.sh
-
 CMD ["./script.sh"]

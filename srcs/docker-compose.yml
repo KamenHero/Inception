@@ -44,6 +44,7 @@ services:
     image: nginx
 
   static_website:
+    image: static_website
     container_name: static_website
     build: /home/oryadi/inception/srcs/requirements/bonus/static/.
     restart: always
@@ -64,6 +65,7 @@ services:
       - 40000-40010:40000-40010
   
   adminer:
+    image: adminer
     container_name: adminer
     build: /home/oryadi/inception/srcs/requirements/bonus/adminer/.
     restart: always
@@ -73,11 +75,28 @@ services:
       - 8080:8080
 
   redis-cache:
+    image: redis-cache
     container_name: redis-cache
     build: /home/oryadi/inception/srcs/requirements/bonus/redis-cache/.
     restart: always
     networks:
       - inception_net
+
+  cadviser:
+    image: cadviser
+    container_name: cadviser
+    build: /home/oryadi/inception/srcs/requirements/bonus/cadviser/.
+    restart: always
+    networks:
+      - inception_net
+    ports:
+      - 8090:8090
+    volumes:
+      - /:/rootfs:ro \
+      - /var/run:/var/run:ro \
+      - /sys:/sys:ro \
+      - /var/lib/docker/:/var/lib/docker:ro \
+      - /dev/disk/:/dev/disk:ro \
 
 networks:
   inception_net:

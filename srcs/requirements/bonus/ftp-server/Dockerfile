@@ -12,6 +12,4 @@ RUN chmod +x script.sh
 
 RUN mkdir -p  /var/run/vsftpd && mkdir -p /var/run/vsftpd/empty
 
-# RUN systemctl restart vsftpd.service
-
 CMD ["./script.sh"]
