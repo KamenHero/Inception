@@ -14,5 +14,3 @@ COPY  ./conf /etc/nginx/sites-enabled
 
 
 CMD ["nginx", "-g", "daemon off;"] 
-# CMD ["bash"]
-
